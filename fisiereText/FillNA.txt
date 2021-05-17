@@ -1,0 +1,12 @@
+----FILL NA OPTIONS----
+
+Alter data with:
+
+1. Specific value
+2. Average
+3. Median
+4. Forward fill
+5. Backwords fill
+
+
+

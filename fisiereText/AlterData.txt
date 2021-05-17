@@ -1,0 +1,21 @@
+-----ALTER DATA STEP------
+
+1. Fill NA
+    1. Specific value
+    2. Average
+    3. Median
+    4. Forward fill
+    5. Backwords fill
+2. Duplicate
+3. Drop
+4. Drop NA
+5. Outliers
+6. Format
+    1. Change datatype
+    2. Format text
+        |- Upper
+        |- Lower
+        |- Proper
+    3. Format date
+        |- Timestamp to date
+

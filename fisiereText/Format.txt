@@ -1,0 +1,9 @@
+---- FORMAT OPTIONS ----
+1. Change datatype
+2. Format text
+    |- Upper
+    |- Lower
+    |- Proper
+3. Format date
+    |- Timestamp to date
+

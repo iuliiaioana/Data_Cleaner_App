@@ -1,0 +1,11 @@
+-----VALIDATION STEP------
+
+Please give the number are you interested.
+1. Data head
+2. Data info
+3. Data describe
+4. Data unique all
+5. Data unique column/s
+6. Data nunique
+7. Confirmation. Go to next stages.
+
