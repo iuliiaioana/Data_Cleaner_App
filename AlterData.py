@@ -18,11 +18,11 @@ class FillNa(Data):
 
     def fillna_average(self,column):
         self.data[column].fillna(self.data[column].mean(),inplace=True)
-        return self.data.head()
+        return self.data[column].head(10)
 
     def fillna_median(self,column):
         self.data[column].fillna(self.data[column].median(), inplace=True)
-        return self.data.head()
+        return self.data[column].head()
 
     def fillna_forword_fill(self,column):
         self.data[column].ffill( inplace=True)
@@ -34,13 +34,32 @@ class FillNa(Data):
 
 
 class Duplicate(Data):
-    def __init__(self, data):
-        super().__init__(data)
+    def __init__(self):
+        super().__init__()
+
+    def duplicate_columns_all(self):
+        self.data=self.data[~self.data.duplicated()]
+        return self.data.head(10)
+
+    def duplicate_columns_selection(self,columns):
+        """
+          Default selection keep the first
+        """
+        self.data=self.data.drop_duplicates(subset=columns)
+        return self.data.head(10)
+
+    def duplicate_columns_selection_last(self,columns):
+        self.data=self.data.drop_duplicates(subset=columns, keep='last')
+        return self.data.head(10)
 
 
 class Drop(Data):
-    def __init__(self, data):
-        super().__init__(data)
+    def __init__(self):
+        super().__init__()
+
+    def drop_columns(self, columns):
+        self.data.drop(columns, axis=1, inplace=True)
+        return self.data.head(10)
 
 class Outliers(Data):
     def __init__(self, data):
@@ -57,8 +76,6 @@ class AlterData():
         super()
 
 
-
-
 if __name__ == '__main__':
 
     dd = f.get_dataframe()
@@ -68,8 +85,11 @@ if __name__ == '__main__':
     #     lines = a_file.readlines()
     #     for line in lines:
     #         print(line)
-    test_f1=FillNa()
-    print(test_f1.fill_backwords_fill('age'))
+    # test_f1=FillNa()
+    # print(test_f1.fill_backwords_fill('age'))
+    test_drop=Duplicate()
+    # print(test_drop.duplicate_columns_selection('name'))
+    print(test_drop.duplicate_columns_selection_last('name'))
 
 
 

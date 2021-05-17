@@ -1,4 +1,5 @@
 id,name,date,manner_of_death,armed,age,gender,race,city,state,signs_of_mental_illness,threat_level,flee,body_camera,arms_category
+3,Tim Elliot,2015-01-02,shot,gun,14,M,Asian,Shelton,WA,TRUE,attack,Not fleeing,FALSE,Guns
 3,Tim Elliot,2015-01-02,shot,gun,11,M,Asian,Shelton,WA,TRUE,attack,Not fleeing,FALSE,Guns
 4,Lewis Lee Lembke,2015-01-02,shot,gun,,M,White,Aloha,OR,FALSE,attack,Not fleeing,FALSE,Guns
 5,John Paul Quintero,2015-01-03,shot and Tasered,unarmed,1,M,Hispanic,Wichita,KS,FALSE,other,Not fleeing,FALSE,Unarmed
