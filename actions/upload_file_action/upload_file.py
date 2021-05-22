@@ -21,16 +21,16 @@ class UploadFile:
     def get_dataframe(self):
         return self.df
 
+    def get_data_from_file(self):
+        if self.get_extension() == '.csv':
+            self.read_csv()
+        elif self.get_extension() in ['.xls', '.xlsx']:
+            self.read_excel()
+        else:
+            self.read_json()
 
-f=UploadFile('upload_files/shootings.csv')
-# file_name=input('Give the file name:')
+        return self.df
 
-if f.get_extension() == '.csv':
-    f.read_csv()
-elif f.get_extension() in ['.xls','.xlsx']:
-    f.read_excel()
-else:
-    f.read_json()
 
 
 
