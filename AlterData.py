@@ -81,7 +81,7 @@ if __name__ == '__main__':
     dd = f.get_dataframe()
     # pas3=AlterData(dd)
     # pas3.incercare()
-    # with open("fisiereText/AlterData.txt") as a_file:
+    # with open("menu_templates/AlterData.txt") as a_file:
     #     lines = a_file.readlines()
     #     for line in lines:
     #         print(line)
