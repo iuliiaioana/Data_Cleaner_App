@@ -22,7 +22,7 @@ class UploadFile:
         return self.df
 
 
-f=UploadFile('fisiereDeUpload/shootings.csv')
+f=UploadFile('upload_files/shootings.csv')
 # file_name=input('Give the file name:')
 
 if f.get_extension() == '.csv':
