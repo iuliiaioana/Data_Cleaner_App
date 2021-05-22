@@ -1,4 +1,4 @@
-from uploadFile import f
+from upload_file import f
 import pandas as pd
 import numpy as np
 pd.set_option('display.max_columns', None)
@@ -81,7 +81,7 @@ if __name__ == '__main__':
     dd = f.get_dataframe()
     # pas3=AlterData(dd)
     # pas3.incercare()
-    # with open("menu_templates/AlterData.txt") as a_file:
+    # with open("menu_templates/alter_data.txt") as a_file:
     #     lines = a_file.readlines()
     #     for line in lines:
     #         print(line)

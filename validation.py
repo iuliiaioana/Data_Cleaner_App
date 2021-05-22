@@ -1,4 +1,4 @@
-from uploadFile import f
+from upload_file import f
 import pandas as pd
 
 class Validation():
@@ -44,7 +44,7 @@ if __name__ == '__main__':
         '7': dd.get_confirmation
     }
     while(i!='7'):
-        with open("menu_templates/Validation.txt") as a_file:
+        with open("menu_templates/validation.txt") as a_file:
             lines = a_file.readlines()
             for line in lines:
                 print(line)
