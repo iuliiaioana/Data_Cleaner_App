@@ -3,7 +3,7 @@ import pandas as pd
 
 class DataVisualisation:
     def __init__(self, data):
-        self.data=pd.DataFrame(data)
+        self.data = pd.DataFrame(data)
 
     def get_head(self):
         return self.data.head()
@@ -14,12 +14,12 @@ class DataVisualisation:
     def get_describe(self):
         return self.data.describe()
 
-    def get_unique_col(self,col):
+    def get_unique_col(self, col):
         return self.data[col].unique()
 
-    def get_unique_all(self,d=dict()):
+    def get_unique_all(self, d=dict()):
         for col in self.data.columns:
-            d[col]=list(self.data[col].unique())
+            d[col] = list(self.data[col].unique())
         return d
 
     def get_nunique(self):
@@ -54,4 +54,3 @@ class DataVisualisation:
                     print(f'Column {v} with unique values: {switcher[i](v)}')
             else:
                 print(switcher[i]())
-

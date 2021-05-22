@@ -8,10 +8,8 @@ from actions.data_visualisation_action.data_visualisation import \
 from actions.get_data_action.get_data import Data
 from actions.upload_file_action.upload_file import UploadFile
 
-
 pd.set_option('display.max_columns', None)
 pd.set_option('display.max_rows', None)
-
 
 if __name__ == '__main__':
     f = UploadFile('upload_files/shootings.csv')
@@ -30,5 +28,3 @@ if __name__ == '__main__':
 
     test_drop = Drop(data_frame)
     print(test_drop.drop_columns('age'))
-
-

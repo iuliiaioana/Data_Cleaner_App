@@ -1,10 +1,11 @@
 import pathlib
 import pandas as pd
 
+
 class UploadFile:
-    def __init__(self,file):
-        self.file=file
-        self.df=pd.DataFrame()
+    def __init__(self, file):
+        self.file = file
+        self.df = pd.DataFrame()
 
     def get_extension(self):
         return pathlib.Path(self.file).suffix
@@ -30,7 +31,3 @@ class UploadFile:
             self.read_json()
 
         return self.df
-
-
-
-

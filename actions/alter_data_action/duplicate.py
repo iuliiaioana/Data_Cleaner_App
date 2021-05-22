@@ -6,16 +6,16 @@ class Duplicate(Data):
         super().__init__(data_frame)
 
     def duplicate_columns_all(self):
-        self.data=self.data[~self.data.duplicated()]
+        self.data = self.data[~self.data.duplicated()]
         return self.data.head(10)
 
-    def duplicate_columns_selection(self,columns):
+    def duplicate_columns_selection(self, columns):
         """
-          Default selection keep the first
+          By default, the first occurrence is kept, the others are dropped.
         """
-        self.data=self.data.drop_duplicates(subset=columns)
+        self.data = self.data.drop_duplicates(subset=columns)
         return self.data.head(10)
 
-    def duplicate_columns_selection_last(self,columns):
-        self.data=self.data.drop_duplicates(subset=columns, keep='last')
+    def duplicate_columns_selection_last(self, columns):
+        self.data = self.data.drop_duplicates(subset=columns, keep='last')
         return self.data.head(10)
