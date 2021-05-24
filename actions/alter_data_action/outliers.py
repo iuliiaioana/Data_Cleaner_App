@@ -26,7 +26,7 @@ class Outliers(Data):
         # self.data = self.data[filtered_entries]
         df = self.data.select_dtypes(include=['float64'])
         self.data = self.data[(np.abs(stats.zscore(df['age'])) < 3).all()]
-        return self.data.head()
+        return self.data
 
     def replace_ouliers_interquartile(self, columns):
         """
@@ -37,25 +37,21 @@ class Outliers(Data):
               conditie ?
             v4: median datasetului
 
-            TODO: FACUT REPLACE + INDEXARE COLOANA+ INCADRARE INTERVAL
+            TODO: daca vrem sa adaugam la if si nan
         """
         for column in columns:
             q_low = self.data[column].quantile(0.25)
             q_hi = self.data[column].quantile(0.75)
             iqr = q_hi - q_low
-            df_without_outlier=self.data[(self.data[column] <(q_hi+1.5*iqr)) & (self.data[column] > (q_low-1.5*iqr))]
-            medie=df_without_outlier.mean()
-            self.data = self.data[~(self.data[column] < (q_hi + 1.5 * iqr)) & (self.data[column] > (q_low - 1.5 * iqr))]
+            df_without_outlier = self.data[
+                (self.data[column] < (q_hi + 1.5 * iqr)) & (self.data[column] > (q_low - 1.5 * iqr))]
+            mean_of_non_outliers = df_without_outlier.mean()
+            index = self.data.columns.get_loc(column)
             for d in range(len(self.data[column])):
-                # print(self.data.iloc[d,5])
-                if not (self.data.iloc[d,5] < (q_hi + 1.5 * iqr)) and (self.data.iloc[d,5] > (q_low - 1.5 * iqr)):
-                    # self.data.iloc[d,5].replace(to_replace=self.data.iloc[d,5] ,value=medie)
-                    # np.where(self.data ==self.data.iloc[d,5],medie,self.data[:,5] )
-
-            print(self.data.iloc[:,5])
-
-
-        return self.data.head()
+                if not (self.data.iloc[d, index] < (q_hi + 1.5 * iqr)) and (
+                        self.data.iloc[d, index] > (q_low - 1.5 * iqr)):
+                    self.data.loc[d, column] = mean_of_non_outliers[column]
+        return self.data.head(10)
 
     def delete_outliers_interquartile(self, columns):
         """
@@ -68,4 +64,4 @@ class Outliers(Data):
             iqr = q_hi - q_low
             self.data = self.data[(self.data[column] < (q_hi + 1.5 * iqr)) & (self.data[column] > (q_low - 1.5 * iqr))]
 
-        return self.data.head()
+        return self.data
