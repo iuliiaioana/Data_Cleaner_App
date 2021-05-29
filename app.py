@@ -28,7 +28,7 @@ if __name__ == '__main__':
     # print(test_duplicate.duplicate_columns_selection_last('name'))
 
     # test_drop = Drop(data_frame)
-    # print(test_drop.drop_columns('age'))
+    # print(test_drop.drop_columns('age'))4
 
     test_outlier= Outliers(data_frame)
     # print(test_outlier.delete_outliers_zscore(['age']))
@@ -40,4 +40,3 @@ if __name__ == '__main__':
     # d.get_info()
     test_alterdata=AlterData(data_frame)
     test_alterdata.start()
-

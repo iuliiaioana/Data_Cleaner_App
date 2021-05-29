@@ -11,7 +11,7 @@ class Outliers(Data):
     def __init__(self, data_frame):
         super().__init__(data_frame)
 
-    def replace_outliers_zscore(self):
+    def replace_outliers_zscore(self, columns):
         """
         Replace outliers with median/mean in order to keep date for further analysis
         """
@@ -86,8 +86,8 @@ class Outliers(Data):
             i = input('Select operation: ')
             if i == '1' or i == '2' or i == '3' or i == '4':
                 columns = input('Select columns name: ')
+                columns = columns.split(',')
                 print(switcher[i](columns))
             else:
                 print('Please, give a valid action')
-
         return

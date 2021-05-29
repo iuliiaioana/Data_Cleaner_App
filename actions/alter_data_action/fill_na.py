@@ -45,8 +45,8 @@ class FillNa(Data):
                 value = input('Select value to fill in: ')
                 column = input('Select column name: ')
                 for v in column.split(','):
-                    print(switcher[i](int(value),v))
-            elif i != 'o' :
+                    print(switcher[i](int(value), v))
+            elif i != 'o':
                 column = input('Select column name: ')
                 print(switcher[i](column))
             else:
