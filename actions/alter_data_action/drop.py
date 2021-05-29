@@ -10,7 +10,6 @@ class Drop(Data):
         return self.data.head(10)
 
     def process(self):
-        print('sunt in drop class')
         column = input('Select columns name: ')
         for v in column.split(','):
             self.drop_columns(v)

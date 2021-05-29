@@ -17,8 +17,8 @@ if __name__ == '__main__':
     data = Data(data_frame=f.get_data_from_file())
     data_frame = data.get_data()
 
-    # data_visualisation = DataVisualisation(data_frame)
-    # data_visualisation.start_visualisation()
+    data_visualisation = DataVisualisation(data_frame)
+    data_visualisation.start_visualisation()
 
     # test_f1 = FillNa(data_frame)
     # print(test_f1.fill_backwords_fill('age'))
@@ -30,10 +30,10 @@ if __name__ == '__main__':
     # test_drop = Drop(data_frame)
     # print(test_drop.drop_columns('age'))4
 
-    test_outlier= Outliers(data_frame)
+    # test_outlier= Outliers(data_frame)
     # print(test_outlier.delete_outliers_zscore(['age']))
     # print(test_outlier.delete_outliers_interquartile(['age']))
-    print(test_outlier.replace_ouliers_interquartile(['age']))
+    # print(test_outlier.replace_ouliers_interquartile(['age']))
 
     # print()
     # d=DataVisualisation(data_frame)

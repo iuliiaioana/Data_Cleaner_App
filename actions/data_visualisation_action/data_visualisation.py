@@ -52,5 +52,8 @@ class DataVisualisation:
                 column = input('Select column name: ')
                 for v in column.split(','):
                     print(f'Column {v} with unique values: {switcher[i](v)}')
-            else:
+            elif i == '1' or i == '2' or i == '3' or i == '4' or i == '6':
                 print(switcher[i]())
+            elif i != '7':
+                print('Please, give a valid action')
+        return

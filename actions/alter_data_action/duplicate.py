@@ -21,7 +21,6 @@ class Duplicate(Data):
         return self.data.head(10)
 
     def process(self):
-        print('sunt in duplicate')
         i = ''
         switcher = {
             '1': self.duplicate_columns_all,

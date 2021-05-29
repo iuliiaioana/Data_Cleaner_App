@@ -21,7 +21,7 @@ class AlterData(Data):
 
     def start(self):
         i = ''
-        while i != 'o':
+        while i != '7':
             with open("menu_templates/alter_data.txt") as a_file:
                 lines = a_file.readlines()
                 for line in lines:
@@ -29,6 +29,6 @@ class AlterData(Data):
             i = input('Select operation: ')
             if i == '1' or i == '2' or i == '3' or i == '5':
                 self.procesor(i).process()
-            else:
+            elif i != '7' :
                 print('Please, give a valid process')
         return

@@ -19,5 +19,5 @@
     3. Format date
         |- Timestamp to date
 
-Press o to exit
+7. Confirmation. Go to saving process.
 

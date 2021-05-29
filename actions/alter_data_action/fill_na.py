@@ -26,7 +26,6 @@ class FillNa(Data):
         return self.data.head(10)
 
     def process(self):
-        print('sunt in fillana')
         i = ''
         switcher = {
             '1': self.fillna_spefic_value,
