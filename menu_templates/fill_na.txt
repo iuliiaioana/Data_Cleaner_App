@@ -8,5 +8,7 @@ Alter data with:
 4. Forward fill
 5. Backwords fill
 
+Press o to exit
+
 
 

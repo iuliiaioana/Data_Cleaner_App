@@ -1,6 +1,10 @@
+import sys
+
 from scipy.stats import stats
 from actions.get_data_action.get_data import Data
 import numpy as np
+
+np.set_printoptions(threshold=sys.maxsize)
 
 
 class Outliers(Data):
@@ -26,7 +30,7 @@ class Outliers(Data):
         # self.data = self.data[filtered_entries]
         df = self.data.select_dtypes(include=['float64'])
         self.data = self.data[(np.abs(stats.zscore(df['age'])) < 3).all()]
-        return self.data
+        return self.data.head(10)
 
     def replace_ouliers_interquartile(self, columns):
         """
@@ -64,4 +68,26 @@ class Outliers(Data):
             iqr = q_hi - q_low
             self.data = self.data[(self.data[column] < (q_hi + 1.5 * iqr)) & (self.data[column] > (q_low - 1.5 * iqr))]
 
-        return self.data
+        return self.data.head(10)
+
+    def process(self):
+        i = ''
+        switcher = {
+            '1': self.delete_outliers_zscore,
+            '2': self.replace_outliers_zscore,
+            '3': self.delete_outliers_interquartile,
+            '4': self.replace_ouliers_interquartile
+        }
+        while i != 'o':
+            with open("menu_templates/outliers.txt") as a_file:
+                lines = a_file.readlines()
+                for line in lines:
+                    print(line)
+            i = input('Select operation: ')
+            if i == '1' or i == '2' or i == '3' or i == '4':
+                columns = input('Select columns name: ')
+                print(switcher[i](columns))
+            else:
+                print('Please, give a valid action')
+
+        return

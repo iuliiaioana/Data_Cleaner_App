@@ -31,3 +31,4 @@ class UploadFile:
             self.read_json()
 
         return self.df
+

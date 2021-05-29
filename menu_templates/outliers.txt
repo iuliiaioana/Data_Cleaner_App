@@ -1,0 +1,10 @@
+----OUTLIERS OPTIONS----
+
+Alter data with:
+
+1. Remove outliers using zscore
+2. Replace outliers using zscore
+3. Remove outliers using IQR
+4. Replace outliers using IQR
+
+Press o to exit

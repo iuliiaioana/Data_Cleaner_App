@@ -1,4 +1,6 @@
 import pandas as pd
+
+from actions.alter_data_action.alter_data import AlterData
 from actions.alter_data_action.drop import Drop
 from actions.alter_data_action.duplicate import Duplicate
 from actions.alter_data_action.fill_na import FillNa
@@ -22,7 +24,7 @@ if __name__ == '__main__':
     # print(test_f1.fill_backwords_fill('age'))
 
     # test_duplicate = Duplicate(data_frame)
-    # # print(test_duplicate.duplicate_columns_selection('name'))
+    # # print(test_duplicate.duplicate_columns_selection('name'))1
     # print(test_duplicate.duplicate_columns_selection_last('name'))
 
     # test_drop = Drop(data_frame)
@@ -36,4 +38,6 @@ if __name__ == '__main__':
     # print()
     # d=DataVisualisation(data_frame)
     # d.get_info()
+    test_alterdata=AlterData(data_frame)
+    test_alterdata.start()
 

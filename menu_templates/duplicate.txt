@@ -1,0 +1,12 @@
+----DUPLICATE OPTIONS----
+
+Alter data with:
+
+1. Remove  all duplicates
+2. Remove duplicates and keep the first occurrence
+3. Remove duplicates and keep the last occurrence
+
+Press o to exit
+
+
+

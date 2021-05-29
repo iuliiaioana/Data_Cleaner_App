@@ -1,11 +1,11 @@
 -----ALTER DATA STEP------
 
 1. Fill NA
-    1. Specific value
-    2. Average
-    3. Median
-    4. Forward fill
-    5. Backwords fill
+    |- Specific value
+    |- Average
+    |- Median
+    |- Forward fill
+    |- Backwords fill
 2. Duplicate
 3. Drop
 4. Drop NA
@@ -18,4 +18,6 @@
         |- Proper
     3. Format date
         |- Timestamp to date
+
+Press o to exit
 

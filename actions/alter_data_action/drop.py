@@ -8,3 +8,11 @@ class Drop(Data):
     def drop_columns(self, columns):
         self.data.drop(columns, axis=1, inplace=True)
         return self.data.head(10)
+
+    def process(self):
+        print('sunt in drop class')
+        column = input('Select columns name: ')
+        for v in column.split(','):
+            self.drop_columns(v)
+
+        return
