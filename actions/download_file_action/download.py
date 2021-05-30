@@ -5,7 +5,6 @@ import os
 
 class DownloadFile:
     def __init__(self, data):
-        self.filepath = ''
         self.df = data
 
     def write_csv(self):

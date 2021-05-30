@@ -15,7 +15,7 @@ pd.set_option('display.max_columns', None)
 pd.set_option('display.max_rows', None)
 
 if __name__ == '__main__':
-    f = UploadFile('fisiereDeUpload/shootings.csv')
+    f = UploadFile('fisiereDeUpload/heart.csv')
     data = Data(data_frame=f.get_data_from_file())
     data_frame = data.get_data()
 
@@ -47,6 +47,6 @@ if __name__ == '__main__':
     # test_download.write_csv()
     # test_download = DownloadFile(data_frame, 'd1.xlsx')
     # test_download.write_excel()
-    # test_download = DownloadFile(data_frame, 'd1.json')
+    test_download = DownloadFile(data_frame)
     # test_download.write_json()
     test_download.start()
