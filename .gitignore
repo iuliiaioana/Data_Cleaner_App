@@ -6,3 +6,4 @@ venv/*
 # Upload data dir
 upload_files/
 fisiereDeUpload/
+fisiereDownload/
