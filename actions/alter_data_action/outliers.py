@@ -86,9 +86,9 @@ class Outliers(Data):
             if self.data[column].dtype in ['int64', 'float64']:
                 q_low = self.data[column].quantile(0.05)
                 q_hi = self.data[column].quantile(0.95)
-                print('q_hi',q_hi)
-                print('q_low',q_low)
-                print('colimn',column)
+                print('q_hi', q_hi)
+                print('q_low', q_low)
+                print('colimn', column)
                 iqr = q_hi - q_low
                 print(iqr)
                 self.data = self.data[(self.data[column] < q_hi + 1.5 * iqr) & (self.data[column] > q_low - 1.5 * iqr)]
