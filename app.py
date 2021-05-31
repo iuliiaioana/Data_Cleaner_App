@@ -15,12 +15,12 @@ pd.set_option('display.max_columns', None)
 pd.set_option('display.max_rows', None)
 
 if __name__ == '__main__':
-    f = UploadFile('actions/heart.csv')
+    f = UploadFile('fisiereDeUpload/heart.csv')
     data = Data(data_frame=f.get_data_from_file())
     data_frame = data.get_data()
 
-    # data_visualisation = DataVisualisation(data_frame)
-    # data_visualisation.start_visualisation()
+    data_visualisation = DataVisualisation(data_frame)
+    data_visualisation.start_visualisation()
 
     # test_f1 = FillNa(data_frame)
     # print(test_f1.fill_backwords_fill('age'))
@@ -37,16 +37,16 @@ if __name__ == '__main__':
     # # print(test_outlier.replace_outliers_zscore())
     # print(test_outlier.delete_outliers_interquartile())
     # print(test_outlier.replace_ouliers_interquartile())
-    format_data = Format(data_frame)
-    print(format_data.change_to_upper())
-    print(format_data.change_to_lower())
-    print(format_data.change_to_proper())
+    # format_data = Format(data_frame)
+    # print(format_data.change_to_upper())
+    # print(format_data.change_to_lower())
+    # print(format_data.change_to_proper())
 
     # print()
     # d=DataVisualisation(data_frame)
     # d.get_info()
-    # test_alterdata=AlterData(data_frame)
-    # test_alterdata.start()
+    test_alterdata = AlterData(data_frame)
+    test_alterdata.start()
 
     # test_download=DownloadFile(data_frame)
     # # test_download.write_csv()

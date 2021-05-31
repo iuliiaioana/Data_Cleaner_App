@@ -39,6 +39,6 @@ class Duplicate(Data):
                     print(switcher[i](v))
             elif i == '1':
                 print(switcher[i]())
-            else:
+            elif i != 'o':
                 print('Please, give a valid action')
         return

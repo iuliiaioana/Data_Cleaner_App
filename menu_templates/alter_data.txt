@@ -11,12 +11,12 @@
 4. Drop NA
 5. Outliers
 6. Format
-    1. Change datatype
-    2. Format text
+    |- Change datatype
+    |- Format text
         |- Upper
         |- Lower
         |- Proper
-    3. Format date
+    |- Format date
         |- Timestamp to date
 
 7. Confirmation. Go to saving process.

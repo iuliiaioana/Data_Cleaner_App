@@ -39,16 +39,6 @@ class Outliers(Data):
                 self.data = self.data[np.abs(stats.zscore(self.data[column])) < 3]
             else:
                 print(column, 'is a non numerical column!!')
-        # return self.data.head(15)
-        # z_scores = stats.zscore(self.data.select_dtypes(include=['int64','float64']))
-        # z_scores = stats.zscore(self.data['age'])
-        # abs_z_scores = np.abs(z_scores)
-        # print(abs_z_scores)
-        # filtered_entries = (abs_z_scores < 1).all()
-        # print(filtered_entries)
-        # self.data = self.data[filtered_entries]
-        # df = self.data.select_dtypes(include=['float64'])
-        # self.data = self.data[(np.abs(stats.zscore(df['age'])) < 3).all()]
         return self.data
 
     def replace_ouliers_interquartile(self):
@@ -86,11 +76,7 @@ class Outliers(Data):
             if self.data[column].dtype in ['int64', 'float64']:
                 q_low = self.data[column].quantile(0.05)
                 q_hi = self.data[column].quantile(0.95)
-                print('q_hi', q_hi)
-                print('q_low', q_low)
-                print('colimn', column)
                 iqr = q_hi - q_low
-                print(iqr)
                 self.data = self.data[(self.data[column] < q_hi + 1.5 * iqr) & (self.data[column] > q_low - 1.5 * iqr)]
 
         return self.data.head(10)
@@ -110,9 +96,7 @@ class Outliers(Data):
                     print(line)
             i = input('Select operation: ')
             if i == '1' or i == '2' or i == '3' or i == '4':
-                columns = input('Select columns name: ')
-                columns = columns.split(',')
                 print(switcher[i]())
-            else:
+            elif i != 'o':
                 print('Please, give a valid action')
         return

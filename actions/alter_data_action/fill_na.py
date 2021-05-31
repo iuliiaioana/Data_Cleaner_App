@@ -45,9 +45,9 @@ class FillNa(Data):
                 column = input('Select column name: ')
                 for v in column.split(','):
                     print(switcher[i](int(value), v))
-            elif i != 'o':
+            elif i == '2' or i == '3' or i == '4' or i == '5':
                 column = input('Select column name: ')
                 print(switcher[i](column))
-            else:
+            elif i != 'o':
                 print('Please, give a valid action')
         return
