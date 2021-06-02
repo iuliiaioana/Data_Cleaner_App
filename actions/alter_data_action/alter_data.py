@@ -1,4 +1,5 @@
 from actions.alter_data_action.drop import Drop
+from actions.alter_data_action.dropNA import DropNA
 from actions.alter_data_action.duplicate import Duplicate
 from actions.alter_data_action.fill_na import FillNa
 from actions.alter_data_action.format import Format
@@ -17,6 +18,8 @@ class AlterData(Data):
             return Duplicate(self.data)
         elif actiontype == '3':
             return Drop(self.data)
+        elif actiontype == '4':
+            return DropNA(self.data)
         elif actiontype == '5':
             return Outliers(self.data)
         elif actiontype == '6':
@@ -30,7 +33,7 @@ class AlterData(Data):
                 for line in lines:
                     print(line)
             i = input('Select operation: ')
-            if i == '1' or i == '2' or i == '3' or i == '5' or i == '6':
+            if i == '1' or i == '2' or i == '3' or i == '5' or i == '6' or i == '4':
                 self.procesor(i).process()
             elif i != '7':
                 print('Please, give a valid process')

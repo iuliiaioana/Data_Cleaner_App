@@ -7,7 +7,7 @@
     |- Forward fill
     |- Backwords fill
 2. Duplicate
-3. Drop
+3. Drop Columns
 4. Drop NA
 5. Outliers
 6. Format

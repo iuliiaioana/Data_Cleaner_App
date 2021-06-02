@@ -19,8 +19,8 @@ if __name__ == '__main__':
     data = Data(data_frame=f.get_data_from_file())
     data_frame = data.get_data()
 
-    data_visualisation = DataVisualisation(data_frame)
-    data_visualisation.start_visualisation()
+    # data_visualisation = DataVisualisation(data_frame)
+    # data_visualisation.start_visualisation()
     # data_visualisation.get_gui()
     # test_f1 = FillNa(data_frame)
     # print(test_f1.fill_backwords_fill('age'))
@@ -29,7 +29,8 @@ if __name__ == '__main__':
     # # print(test_duplicate.duplicate_columns_selection('name'))1
     # print(test_duplicate.duplicate_columns_selection_last('name'))
 
-    # test_drop = Drop(data_frame)
+    test_drop = Drop(data_frame)
+    print(test_drop.drop_na())
     # print(test_drop.drop_columns('age'))4
 
     # test_outlier = Outliers(data_frame)
@@ -45,8 +46,8 @@ if __name__ == '__main__':
     # print()
     # d=DataVisualisation(data_frame)
     # d.get_info()
-    test_alterdata = AlterData(data_frame)
-    test_alterdata.start()
+    # test_alterdata = AlterData(data_frame)
+    # test_alterdata.start()
 
     # test_download=DownloadFile(data_frame)
     # # test_download.write_csv()
