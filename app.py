@@ -21,7 +21,7 @@ if __name__ == '__main__':
 
     data_visualisation = DataVisualisation(data_frame)
     data_visualisation.start_visualisation()
-
+    # data_visualisation.get_gui()
     # test_f1 = FillNa(data_frame)
     # print(test_f1.fill_backwords_fill('age'))
 

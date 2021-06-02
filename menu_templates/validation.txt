@@ -8,3 +8,4 @@ Please give the number are you interested.
 5. Data unique column/s
 6. Data nunique
 7. Confirmation. Go to next stages.
+8. Generate plots with GUI
