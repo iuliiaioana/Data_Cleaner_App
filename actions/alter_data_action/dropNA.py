@@ -7,7 +7,7 @@ class DropNA(Data):
 
     def drop_na(self):
         self.data.dropna(inplace=True)
-        return self.data.head(10)
+        return self.data
 
     def process(self):
         self.drop_na()

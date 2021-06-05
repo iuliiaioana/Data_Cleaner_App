@@ -7,7 +7,7 @@ class Drop(Data):
 
     def drop_columns(self, columns):
         self.data.drop(columns, axis=1, inplace=True)
-        return self.data.head(10)
+        return self.data
 
     def process(self):
         column = input('Select columns name: ')

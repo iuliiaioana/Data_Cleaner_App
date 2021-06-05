@@ -7,23 +7,23 @@ class FillNa(Data):
 
     def fillna_spefic_value(self, value, column):
         self.data[column].fillna(value, inplace=True)
-        return self.data.head()
+        return self.data
 
     def fillna_average(self, column):
         self.data[column].fillna(self.data[column].mean(), inplace=True)
-        return self.data.head(10)
+        return self.data
 
     def fillna_median(self, column):
         self.data[column].fillna(self.data[column].median(), inplace=True)
-        return self.data[column].head()
+        return self.data[column]
 
     def fillna_forword_fill(self, column):
         self.data[column].ffill(inplace=True)
-        return self.data.head(10)
+        return self.data
 
     def fill_backwords_fill(self, column):
         self.data[column].bfill(inplace=True)
-        return self.data.head(10)
+        return self.data
 
     def process(self):
         i = ''

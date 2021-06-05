@@ -7,18 +7,18 @@ class Duplicate(Data):
 
     def duplicate_columns_all(self):
         self.data = self.data[~self.data.duplicated()]
-        return self.data.head(10)
+        return self.data
 
     def duplicate_columns_selection(self, columns):
         """
           By default, the first occurrence is kept, the others are dropped.
         """
         self.data = self.data.drop_duplicates(subset=columns)
-        return self.data.head(10)
+        return self.data
 
     def duplicate_columns_selection_last(self, columns):
         self.data = self.data.drop_duplicates(subset=columns, keep='last')
-        return self.data.head(10)
+        return self.data
 
     def process(self):
         i = ''

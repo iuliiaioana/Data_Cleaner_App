@@ -20,21 +20,21 @@ class Format(Data):
             if self.data[column].dtype == 'object':
                 self.data[column] = self.data[column].str.upper()
 
-        return self.data.head()
+        return self.data
 
     def change_to_lower(self):
         for column in self.data.columns:
             if self.data[column].dtype == 'object':
                 self.data[column] = self.data[column].str.lower()
 
-        return self.data.head()
+        return self.data
 
     def change_to_proper(self):
         for column in self.data.columns:
             if self.data[column].dtype == 'object':
                 self.data[column] = self.data[column].str.capitalize()
 
-        return self.data.head()
+        return self.data
 
     def find_and_replace(self):
         pass

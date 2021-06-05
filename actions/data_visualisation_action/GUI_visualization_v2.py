@@ -8,7 +8,7 @@ from actions.get_data_action.get_data import Data
 from actions.upload_file_action.upload_file import UploadFile
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
-f = UploadFile(r'C:\Users\burag\PycharmProjects\Data_Cleaner_App\actions\testing_visualization.csv')
+f = UploadFile(r'C:\Users\burag\AppData\Roaming\JetBrains\PyCharm2020.3\scratches\testing_visualization.csv')
 data = Data(data_frame=f.get_data_from_file())
 data_frame = data.get_data()
 types = []
@@ -46,9 +46,6 @@ frame = tk.Frame(master)
 frame.pack()
 
 
-
-
-
 def ok():
     ox = variable1.get()
     oy = variable2.get()
@@ -62,7 +59,7 @@ def ok():
             bar4 = FigureCanvasTkAgg(figure, master)
             bar4.get_tk_widget().pack(side=tk.LEFT, fill=tk.BOTH, expand=1)
             df4 = data_frame[[ox, oy]].groupby([ox]).sum()
-            df4.plot(kind='bar',x = ox, y = oy, legend=True, ax=ax)
+            df4.plot(kind='bar', x=ox, y=oy, legend=True, ax=ax)
             ax.set_title(' {} vs  {}'.format(ox, oy))
             ax.set_xlabel(ox, fontsize=10)
             ax.set_ylabel(oy, fontsize=10)
@@ -105,6 +102,7 @@ def _quit():
     master.quit()  # stops mainloop
     master.destroy()  # this is necessary on Windows to prevent
     # Fatal Python Error: PyEval_RestoreThread: NULL tstate
+
 
 buttonq = tk.Button(master=master, text="Quit", command=_quit, bg='red',
                     height=5,
