@@ -15,7 +15,7 @@ pd.set_option('display.max_columns', None)
 pd.set_option('display.max_rows', None)
 
 if __name__ == '__main__':
-    f = UploadFile('fisiereDeUpload/heart.csv')
+    f = UploadFile(r'C:\Users\burag\AppData\Roaming\JetBrains\PyCharm2020.3\scratches\heart.csv')
     data = Data(data_frame=f.get_data_from_file())
     data_frame = data.get_data()
 
@@ -29,8 +29,8 @@ if __name__ == '__main__':
     # # print(test_duplicate.duplicate_columns_selection('name'))1
     # print(test_duplicate.duplicate_columns_selection_last('name'))
 
-    test_drop = Drop(data_frame)
-    print(test_drop.drop_na())
+    # test_drop = Drop(data_frame)
+    # print(test_drop.drop_na())
     # print(test_drop.drop_columns('age'))4
 
     # test_outlier = Outliers(data_frame)
@@ -38,8 +38,8 @@ if __name__ == '__main__':
     # # print(test_outlier.replace_outliers_zscore())
     # print(test_outlier.delete_outliers_interquartile())
     # print(test_outlier.replace_ouliers_interquartile())
-    # format_data = Format(data_frame)
-    # print(format_data.change_to_upper())
+    format_data = Format(data_frame)
+    print(format_data.find_and_replace())
     # print(format_data.change_to_lower())
     # print(format_data.change_to_proper())
 

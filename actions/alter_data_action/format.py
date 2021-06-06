@@ -37,7 +37,16 @@ class Format(Data):
         return self.data
 
     def find_and_replace(self):
-        pass
+        print('Chose one from the columns:', *self.data.columns)
+        column = input('Chose in what column you want to replace the value ')
+        while column not in self.data.columns:
+            column = input('Chose a valid column you want to replace the value ')
+        value_to_find = input('What value you want to find ')
+        while value_to_find not in self.data[column].unique():
+            value_to_find = input('A valid value you want to find ')
+        value_to_replace = input('With what value you want to replace ')
+        self.data.replace({column:{value_to_find:value_to_replace}},inplace = True)
+        return self.data
 
     def process(self):
         i = ''
