@@ -7,23 +7,18 @@ class FillNa(Data):
 
     def fillna_spefic_value(self, value, column):
         self.data[column].fillna(value, inplace=True)
-        return self.data
 
     def fillna_average(self, column):
         self.data[column].fillna(self.data[column].mean(), inplace=True)
-        return self.data
 
     def fillna_median(self, column):
         self.data[column].fillna(self.data[column].median(), inplace=True)
-        return self.data[column]
 
     def fillna_forword_fill(self, column):
         self.data[column].ffill(inplace=True)
-        return self.data
 
     def fill_backwords_fill(self, column):
         self.data[column].bfill(inplace=True)
-        return self.data
 
     def process(self):
         i = ''
@@ -45,7 +40,7 @@ class FillNa(Data):
                 column = input('Select column name: ')
                 for v in column.split(','):
                     print(switcher[i](int(value), v))
-            elif i == '2' or i == '3' or i == '4' or i == '5':
+            elif i in ['2', '3', '4', '5']:
                 column = input('Select column name: ')
                 print(switcher[i](column))
             elif i != 'o':
