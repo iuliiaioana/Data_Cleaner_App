@@ -6,6 +6,7 @@ from tkinter import messagebox
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
+from actions.alter_data_action.alter_data import *
 from actions.get_data_action.get_data import Data
 from actions.upload_file_action.upload_file import UploadFile
 from matplotlib.backends.backend_tkagg import (
@@ -40,10 +41,10 @@ class DataVisualisation:
         return self.data.nunique()
 
     def get_confirmation(self):
-        print('Go to alter data')
-        """
-        //TODO: GO TO ALTER DATA MENIU 
-        """
+        from actions.alter_data_action.alter_data import AlterData
+        new = AlterData(self.data)
+        new.start()
+        return
 
     def get_gui(self):
         lista_coloane = []
@@ -198,8 +199,9 @@ class DataVisualisation:
                 column = input('Select column name: ')
                 for v in column.split(','):
                     print(f'Column {v} with unique values: {switcher[i](v)}')
-            elif i == '1' or i == '2' or i == '3' or i == '4' or i == '6' or i == '8':
+            elif i == '1' or i == '2' or i == '3' or i == '4' or i == '6' or i == '8' or i == '7':
                 print(switcher[i]())
             elif i != '7':
                 print('Please, give a valid action')
+
         return

@@ -20,7 +20,6 @@ class DownloadFile:
         filename = input('Give name of the proceed file:')
         path = os.path.abspath(os.getcwd())
         path += "\\fisiereDownload\\"
-        print(path)
         extension = input('Choose from 1)csv 2)excel 3)json')
         if extension == '1':
             self.filepath = path + filename + '.csv'
@@ -33,3 +32,6 @@ class DownloadFile:
             self.write_json()
         else:
             print('Please give a valid option')
+
+        print('New path of the saved file:',self.filepath)
+        return

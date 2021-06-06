@@ -17,7 +17,9 @@
         |- Lower
         |- Proper
     |- Format date
-        |- Timestamp to date
+        |- Find &replace
 
 7. Confirmation. Go to saving process.
+8. Go back to Validation & Visualization
 
+Press o to exit

@@ -4,6 +4,7 @@ from actions.alter_data_action.duplicate import Duplicate
 from actions.alter_data_action.fill_na import FillNa
 from actions.alter_data_action.format import Format
 from actions.alter_data_action.outliers import Outliers
+from actions.data_visualisation_action.data_visualisation import *
 from actions.get_data_action.get_data import Data
 
 
@@ -27,7 +28,7 @@ class AlterData(Data):
 
     def start(self):
         i = ''
-        while i != '7':
+        while i != 'o':
             with open("menu_templates/alter_data.txt") as a_file:
                 lines = a_file.readlines()
                 for line in lines:
@@ -35,6 +36,15 @@ class AlterData(Data):
             i = input('Select operation: ')
             if i == '1' or i == '2' or i == '3' or i == '5' or i == '6' or i == '4':
                 self.procesor(i).process()
-            elif i != '7':
+            elif i == '8':
+                from actions.data_visualisation_action.data_visualisation import DataVisualisation
+                new = DataVisualisation(self.data)
+                new.start_visualisation()
+            elif i == '7':
+                from actions.download_file_action.download import DownloadFile
+                test_download = DownloadFile(self.data)
+                test_download.start()
+                return
+            elif i != 'o':
                 print('Please, give a valid process')
         return
