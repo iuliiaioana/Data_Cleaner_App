@@ -34,7 +34,7 @@ class AlterData(Data):
                 for line in lines:
                     print(line)
             i = input('Select operation: ')
-            if i == '1' or i == '2' or i == '3' or i == '5' or i == '6' or i == '4':
+            if i in ['1', '2', '3', '4', '5', '6']:
                 self.procesor(i).process()
             elif i == '8':
                 from actions.data_visualisation_action.data_visualisation import DataVisualisation
@@ -44,7 +44,6 @@ class AlterData(Data):
                 from actions.download_file_action.download import DownloadFile
                 test_download = DownloadFile(self.data)
                 test_download.start()
-                return
             elif i != 'o':
                 print('Please, give a valid process')
         return

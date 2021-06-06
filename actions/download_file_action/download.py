@@ -1,14 +1,18 @@
-import pathlib
-import pandas as pd
 import os
 
 
 class DownloadFile:
     def __init__(self, data):
         self.df = data
+        self.filepath = ''
 
     def write_csv(self):
-        self.df = self.df.to_csv(self.filepath, index=False, sep=',', encoding='utf-8')
+        self.df = self.df.to_csv(
+            self.filepath,
+            index=False,
+            sep=',',
+            encoding='utf-8'
+        )
 
     def write_excel(self):
         self.df = self.df.to_excel(self.filepath, index=False, header=True)
@@ -32,5 +36,5 @@ class DownloadFile:
         else:
             print('Please give a valid option')
 
-        print('New path of the saved file:',self.filepath)
+        print('New path of the saved file:', self.filepath)
         return

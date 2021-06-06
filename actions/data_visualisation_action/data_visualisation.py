@@ -163,7 +163,7 @@ class DataVisualisation:
                 column = input('Select column name: ')
                 for v in column.split(','):
                     print(f'Column {v} with unique values: {switcher[i](v)}')
-            elif i in '1234678':
+            elif i in ['1', '2', '3', '4', '6', '7', '8']:
                 print(switcher[i]())
             elif i != '7':
                 print('Please, give a valid action')
