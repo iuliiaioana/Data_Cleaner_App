@@ -13,7 +13,7 @@ from matplotlib.backends.backend_tkagg import (
 from matplotlib.backend_bases import key_press_handler
 from matplotlib.figure import Figure
 
-f = UploadFile('C:/Users/Iulia/Desktop/data_cleaner_app/Data_Cleaner_App/fisiereDeUpload/heart.csv')
+f = UploadFile(r'C:\Users\burag\AppData\Roaming\JetBrains\PyCharm2020.3\scratches\heart.csv')
 data = Data(data_frame=f.get_data_from_file())
 data_frame = data.get_data()
 print(data_frame.columns)

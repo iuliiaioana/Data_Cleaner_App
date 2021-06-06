@@ -8,7 +8,7 @@ from actions.get_data_action.get_data import Data
 from actions.upload_file_action.upload_file import UploadFile
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
-f = UploadFile(r'C:\Users\burag\AppData\Roaming\JetBrains\PyCharm2020.3\scratches\testing_visualization.csv')
+f = UploadFile(r'C:\Users\burag\AppData\Roaming\JetBrains\PyCharm2020.3\scratches\heart.csv')
 data = Data(data_frame=f.get_data_from_file())
 data_frame = data.get_data()
 types = []
@@ -58,7 +58,7 @@ def ok():
         try:
             bar4 = FigureCanvasTkAgg(figure, master)
             bar4.get_tk_widget().pack(side=tk.LEFT, fill=tk.BOTH, expand=1)
-            df4 = data_frame[[ox, oy]].groupby([ox]).sum()
+            df4 = data_frame[[ox, oy]].groupby([ox]).size()
             df4.plot(kind='bar', x=ox, y=oy, legend=True, ax=ax)
             ax.set_title(' {} vs  {}'.format(ox, oy))
             ax.set_xlabel(ox, fontsize=10)
