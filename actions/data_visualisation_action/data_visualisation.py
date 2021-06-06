@@ -52,33 +52,26 @@ class DataVisualisation:
         return
 
     def get_gui(self):
-        lista_coloane = []
-        for i in self.data.columns:
-            lista_coloane.append(i)
-
-        # print(lista_coloane)
-        OPTIONS = lista_coloane
-
-        OPTIONS2 = lista_coloane
-
-        OPTIONS3 = [
+        columns = [col for col in self.data.columns]
+        plot_options = [
             'barplot',
             'scatterplot',
             'lineplot'
         ]
+
         master = tk.Tk()
         # master.geometry("750x250")
         variable1 = StringVar(master)
-        variable1.set(OPTIONS[1])  # default value
-        w = OptionMenu(master, variable1, *OPTIONS)
+        variable1.set(columns[1])  # default value
+        w = OptionMenu(master, variable1, *columns)
 
         variable2 = StringVar(master)
-        variable2.set(OPTIONS2[2])  # default value
-        w2 = OptionMenu(master, variable2, *OPTIONS2)
+        variable2.set(columns[2])  # default value
+        w2 = OptionMenu(master, variable2, *columns)
 
         variable3 = StringVar(master)
-        variable3.set(OPTIONS3[0])  # default value
-        w3 = OptionMenu(master, variable3, *OPTIONS3)
+        variable3.set(plot_options[0])  # default value
+        w3 = OptionMenu(master, variable3, *plot_options)
 
         w.pack()
         w2.pack()
@@ -102,31 +95,6 @@ class DataVisualisation:
                     ax.set_title(' {} vs  {}'.format(ox, oy))
                     ax.set_xlabel(ox, fontsize=10)
                     ax.set_ylabel(oy, fontsize=10)
-                    # #
-                    # canvas = FigureCanvasTkAgg(figure, master)  # A tk.DrawingArea.
-                    # canvas.draw()
-                    # canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
-                    #
-                    # toolbar = NavigationToolbar2Tk(canvas, master)
-                    # toolbar.update()
-                    # canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
-                    #
-                    # def on_key_press(event):
-                    #     print("you pressed {}".format(event.key))
-                    #     key_press_handler(event)
-                    #
-                    # bar4.mpl_connect("key_press_event", on_key_press)
-                    #
-                    # def _quit2():
-                    #     # master.quit()  # stops mainloop
-                    #     master.detele(bar4)  # this is necessary on Windows to prevent
-                    #     # Fatal Python Error: PyEval_RestoreThread: NULL tstate
-                    #
-                    # buttonqq = tk.Button(master=master, text="Delete plot", command=_quit2, bg='red')
-                    # buttonqq.pack(side=tk.BOTTOM)
-
-
-
                 except:
                     messagebox.showinfo("Invalid action", "Can not plot")
 
@@ -157,15 +125,6 @@ class DataVisualisation:
                     ax.set_title(' {} vs  {}'.format(ox, oy))
                     ax.set_xlabel(ox, fontsize=10)
                     ax.set_ylabel(oy, fontsize=10)
-
-                    # canvas = FigureCanvasTkAgg(figure, master)  # A tk.DrawingArea.
-                    # canvas.draw()
-                    # canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
-                    #
-                    # toolbar = NavigationToolbar2Tk(canvas, master)
-                    # toolbar.update()
-                    # canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
-
                 except:
                     messagebox.showinfo("Invalid action", "Can not plot")
 
