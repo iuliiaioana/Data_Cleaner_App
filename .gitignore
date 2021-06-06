@@ -8,6 +8,7 @@ upload_files/
 fisiereDeUpload/
 fisiereDownload/
 download_files/*
+!download_files/.keep
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
