@@ -32,10 +32,10 @@ class DataVisualisation:
     def get_unique_col(self, col):
         return self.data[col].unique()
 
-    def get_unique_all(self, d=dict()):
+    def get_unique_all(self):
         for col in self.data.columns:
-            d[col] = list(self.data[col].unique())
-        return d
+            unique_vals = self.data[col].unique()
+            print("{}: {}".format(col, ', '.join(map(str, unique_vals))))
 
     def get_nunique(self):
         return self.data.nunique()
