@@ -11,10 +11,11 @@ class Outliers(Data):
     def __init__(self, data_frame):
         super().__init__(data_frame)
 
-    def replace_outliers_zscore(self):
-        """
-        Replace outliers with median/mean in order to keep
-        data for further analysis
+    def replace_outliers_zscore(self):        
+        """Replace outliers with median/mean in order to keep
+        data for further analysis.
+        Returns:
+            Pandas DataFrame.
         """
         new_data = self.data
         for column in new_data.columns:
@@ -31,8 +32,11 @@ class Outliers(Data):
                 print(column, 'is a non numerical column!!')
 
     def delete_outliers_zscore(self):
-        """
-        Delete all outliers
+        """Delete all outliers from every column in the data set.
+        
+        Returns:
+            Pandas DataFrame.
+
         """
         for column in self.data.columns:
             if self.data[column].dtype in ['int64', 'float64']:
@@ -41,8 +45,10 @@ class Outliers(Data):
                 print(column, 'is a non numerical column!!')
 
     def replace_ouliers_interquartile(self):
-        """
-        Replacing the average of non outliers
+        """Replaces the outliers with the mean of remaining values.
+        
+        Returns:
+            Pandas DataFrame.
         """
         for column in self.data.columns:
             if self.data[column].dtype in ['int64', 'float64']:
@@ -62,7 +68,10 @@ class Outliers(Data):
 
     def delete_outliers_interquartile(self):
         """
-        Delete outliers
+        Delete the rows from the dataframe where outliers appears.
+
+        Returns:
+            Pandas DataFrame.
         """
         for column in self.data.columns:
             if self.data[column].dtype in ['int64', 'float64']:

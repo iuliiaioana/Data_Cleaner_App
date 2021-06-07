@@ -6,6 +6,13 @@ class Format(Data):
         super().__init__(data_frame)
 
     def change_dtype(self):
+        """Changes the types of the columns from a dataframe.
+            If the column has more than 10 unique values, the type of the
+            column will be changed in string, otherwise it will be changed into category.
+
+        Returns:
+            Pandas DataFrame
+        """        
         for column in self.data.columns:
             if self.data[column].dtype == 'object':
                 if self.data[column].nunique() < 10:
@@ -16,6 +23,12 @@ class Format(Data):
         return self.data
 
     def change_to_upper(self):
+        """Available for object or string types of columns.
+        Changes the text into only uppercase letters.
+
+        Returns:
+            Pandas DataFrame.
+        """        
         for column in self.data.columns:
             if self.data[column].dtype == 'object':
                 self.data[column] = self.data[column].str.upper()
@@ -23,6 +36,12 @@ class Format(Data):
         return self.data
 
     def change_to_lower(self):
+        """Available for object or string types of columns.
+        Changes the text into only lowercase letters.
+
+        Returns:
+            Pandas DataFrame.
+        """       
         for column in self.data.columns:
             if self.data[column].dtype == 'object':
                 self.data[column] = self.data[column].str.lower()
@@ -30,6 +49,12 @@ class Format(Data):
         return self.data
 
     def change_to_proper(self):
+        """Available for object or string types of columns.
+        Changes the first letter of every word into uppercase and the remaining ones into lowecase letters.
+
+        Returns:
+            Pandas DataFrame.
+        """       
         for column in self.data.columns:
             if self.data[column].dtype == 'object':
                 self.data[column] = self.data[column].str.capitalize()
@@ -37,6 +62,11 @@ class Format(Data):
         return self.data
 
     def find_and_replace(self):
+        """The user choses a column from the dataframe columns and chose what to replace with what value.
+
+        Returns:
+            Pandas DataFrame.
+        """        
         print('Chose one from the columns:', *self.data.columns)
         column = input('Chose in what column you want to replace the value ')
         while column not in self.data.columns:

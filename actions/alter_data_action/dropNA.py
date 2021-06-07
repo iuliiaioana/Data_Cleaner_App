@@ -6,6 +6,11 @@ class DropNA(Data):
         super().__init__(data_frame)
 
     def drop_na(self):
+        """Drop the rows where NA values exists.
+
+        Returns:
+            Pandas Dataframe
+        """        
         self.data.dropna(inplace=True)
         return self.data
 
