@@ -20,7 +20,7 @@ class Format(Data):
                 else:
                     self.data[column] = self.data[column].astype('str')
 
-        return self.data
+        # return self.data
 
     def change_to_upper(self):
         """Available for object or string types of columns.
@@ -33,7 +33,7 @@ class Format(Data):
             if self.data[column].dtype == 'object':
                 self.data[column] = self.data[column].str.upper()
 
-        return self.data
+        # return self.data
 
     def change_to_lower(self):
         """Available for object or string types of columns.
@@ -46,7 +46,7 @@ class Format(Data):
             if self.data[column].dtype == 'object':
                 self.data[column] = self.data[column].str.lower()
 
-        return self.data
+        # return self.data
 
     def change_to_proper(self):
         """Available for object or string types of columns.
@@ -59,7 +59,7 @@ class Format(Data):
             if self.data[column].dtype == 'object':
                 self.data[column] = self.data[column].str.capitalize()
 
-        return self.data
+        # return self.data
 
     def find_and_replace(self):
         """The user choses a column from the dataframe columns and chose what to replace with what value.
@@ -76,7 +76,7 @@ class Format(Data):
             value_to_find = input('A valid value you want to find ')
         value_to_replace = input('With what value you want to replace ')
         self.data.replace({column:{value_to_find:value_to_replace}},inplace = True)
-        return self.data
+        # return self.data
 
     def process(self):
         i = ''

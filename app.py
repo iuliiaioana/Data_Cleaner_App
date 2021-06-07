@@ -34,11 +34,15 @@ if __name__ == '__main__':
     # print(test_drop.drop_na())
     # print(test_drop.drop_columns('age'))4
 
+
+
+
     # test_outlier = Outliers(data_frame)
-    # # print(test_outlier.delete_outliers_zscore())
-    # # print(test_outlier.replace_outliers_zscore())
-    # print(test_outlier.delete_outliers_interquartile())
-    # print(test_outlier.replace_ouliers_interquartile())
+    # print(test_outlier.get_data().head())
+    # print(test_outlier.delete_outliers_zscore().head())
+    # print(test_outlier.replace_outliers_zscore().head())
+    # print(test_outlier.delete_outliers_interquartile().head())
+    # print(test_outlier.replace_ouliers_interquartile().head())
     # format_data = Format(data_frame)
     # print(format_data.find_and_replace())
     # print(format_data.change_to_lower())

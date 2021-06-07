@@ -1,5 +1,5 @@
 import sys
-
+import pandas as pd
 from scipy.stats import stats
 from actions.get_data_action.get_data import Data
 import numpy as np
@@ -11,7 +11,7 @@ class Outliers(Data):
     def __init__(self, data_frame):
         super().__init__(data_frame)
 
-    def replace_outliers_zscore(self):        
+    def replace_outliers_zscore(self):
         """Replace outliers with median/mean in order to keep
         data for further analysis.
         Returns:
@@ -19,18 +19,20 @@ class Outliers(Data):
         """
         new_data = self.data
         for column in new_data.columns:
-            if new_data[column].dtype in ['int64', 'float64']:
-                new_data = new_data[np.abs(stats.zscore(new_data[column])) < 3]
+            try:
+                if new_data[column].dtype in ['int64', 'float64']:
+                    new_data = new_data[np.abs(stats.zscore(new_data[column])) < 3]
+                for column in self.data.columns:
+                    if self.data[column].dtype in ['int64', 'float64']:
+                        z_scores = np.abs(stats.zscore(self.data[column]))
+                        for i, item in enumerate(z_scores):
+                            if np.abs(item) > 3:
+                                self.data.loc[i, column] = new_data[column].mean()
+            except:
+                print('No able to Replace')
 
-        for column in self.data.columns:
-            if self.data[column].dtype in ['int64', 'float64']:
-                z_scores = np.abs(stats.zscore(self.data[column]))
-                for i, item in enumerate(z_scores):
-                    if np.abs(item) > 3:
-                        self.data.loc[i, column] = new_data[column].mean()
-            else:
-                print(column, 'is a non numerical column!!')
-        return self.data
+            return self.data
+
 
     def delete_outliers_zscore(self):
         """Delete all outliers from every column in the data set.
@@ -41,10 +43,12 @@ class Outliers(Data):
         """
         for column in self.data.columns:
             if self.data[column].dtype in ['int64', 'float64']:
-                self.data = self.data[np.abs(stats.zscore(self.data[column])) < 3]
-            else:
-                print(column, 'is a non numerical column!!')
+                try:
+                    self.data = self.data[np.abs(stats.zscore(self.data[column])) < 3]
+                except:
+                    print('Invalid DELETE')
         return self.data
+
     def replace_ouliers_interquartile(self):
         """Replaces the outliers with the mean of remaining values.
         
@@ -53,19 +57,22 @@ class Outliers(Data):
         """
         for column in self.data.columns:
             if self.data[column].dtype in ['int64', 'float64']:
-                q_low = self.data[column].quantile(0.05)
-                q_hi = self.data[column].quantile(0.95)
-                iqr = q_hi - q_low
-                df_without_outlier = self.data[
-                    (self.data[column] < (q_hi + 1.5 * iqr)) &
-                    (self.data[column] > (q_low - 1.5 * iqr))
-                ]
-                mean_of_non_outliers = df_without_outlier.mean()
-                index = self.data.columns.get_loc(column)
-                for d in range(len(self.data[column])):
-                    if not (self.data.iloc[d, index] < (q_hi + 1.5 * iqr)) and\
-                            (self.data.iloc[d, index] > (q_low - 1.5 * iqr)):
-                        self.data.loc[d, column] = mean_of_non_outliers[column]
+                try:
+                    q_low = self.data[column].quantile(0.05)
+                    q_hi = self.data[column].quantile(0.95)
+                    iqr = q_hi - q_low
+                    df_without_outlier = self.data[
+                        (self.data[column] < (q_hi + 1.5 * iqr)) &
+                        (self.data[column] > (q_low - 1.5 * iqr))
+                    ]
+                    mean_of_non_outliers = df_without_outlier.mean()
+                    index = self.data.columns.get_loc(column)
+                    for d in range(len(self.data[column])):
+                        if not (self.data.iloc[d, index] < (q_hi + 1.5 * iqr)) and\
+                                (self.data.iloc[d, index] > (q_low - 1.5 * iqr)) or pd.isna(self.data.iloc[d, index]):
+                            self.data.loc[d, column] = mean_of_non_outliers[column]
+                except:
+                    print('No outliers for Replace')
         return self.data
 
     def delete_outliers_interquartile(self):
@@ -80,11 +87,9 @@ class Outliers(Data):
                 q_low = self.data[column].quantile(0.05)
                 q_hi = self.data[column].quantile(0.95)
                 iqr = q_hi - q_low
-                self.data = self.data[
-                    (self.data[column] < q_hi + 1.5 * iqr) &
-                    (self.data[column] > q_low - 1.5 * iqr)
-                ]
+                self.data = self.data[(self.data[column] < q_hi + 1.5 * iqr) & (self.data[column] > q_low - 1.5 * iqr)]
         return self.data
+
 
     def process(self):
         i = ''
