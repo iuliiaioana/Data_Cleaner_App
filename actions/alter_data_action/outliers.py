@@ -33,7 +33,6 @@ class Outliers(Data):
 
             return self.data
 
-
     def delete_outliers_zscore(self):
         """Delete all outliers from every column in the data set.
         
@@ -64,15 +63,15 @@ class Outliers(Data):
                     df_without_outlier = self.data[
                         (self.data[column] < (q_hi + 1.5 * iqr)) &
                         (self.data[column] > (q_low - 1.5 * iqr))
-                    ]
+                        ]
                     mean_of_non_outliers = df_without_outlier.mean()
                     index = self.data.columns.get_loc(column)
                     for d in range(len(self.data[column])):
-                        if not (self.data.iloc[d, index] < (q_hi + 1.5 * iqr)) and\
+                        if not (self.data.iloc[d, index] < (q_hi + 1.5 * iqr)) and \
                                 (self.data.iloc[d, index] > (q_low - 1.5 * iqr)) or pd.isna(self.data.iloc[d, index]):
                             self.data.loc[d, column] = mean_of_non_outliers[column]
                 except:
-                    print('No outliers for Replace')
+                    print('No able to Replace')
         return self.data
 
     def delete_outliers_interquartile(self):
@@ -89,7 +88,6 @@ class Outliers(Data):
                 iqr = q_hi - q_low
                 self.data = self.data[(self.data[column] < q_hi + 1.5 * iqr) & (self.data[column] > q_low - 1.5 * iqr)]
         return self.data
-
 
     def process(self):
         i = ''
